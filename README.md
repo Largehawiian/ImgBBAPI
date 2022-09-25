@@ -35,3 +35,6 @@ Get-ChildItem -Path "C:\Temp\" | _UploadFolder -Key "Your Key"
 ```powershell
 Get-Help .\ImageUploadScript.ps1 -Examples
 ```
+
+
+[Demonstration](https://youtu.be/0Y0eAus5yB4)
