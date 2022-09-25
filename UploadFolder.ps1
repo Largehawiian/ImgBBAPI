@@ -17,14 +17,14 @@ Function _UploadFolder {
         [parameter(ValueFromPipelineByPropertyName)]$FullName
     )
     begin {
-        $FilsToProcess = [System.Collections.Generic.List[String]]::new()
+        $FilesToProcess = [System.Collections.Generic.List[String]]::new()
     }
     process {
         if ($_.PSIsContainer) { return }
-        $FilsToProcess.Add($FullName)
+        $FilesToProcess.Add($FullName)
     }
     end {
-        $FilsToProcess | ForEach-Object {
+        $FilesToProcess | ForEach-Object {
             $output = _UploadImage -path $_ -key $key
             $output | Add-Member -MemberType NoteProperty -Name 'FullName' -Value $_
             $output
