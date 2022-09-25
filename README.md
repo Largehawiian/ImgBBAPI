@@ -22,5 +22,5 @@ Get-ChildItem -Path "C:\Temp\" | _UploadFolder -Key "Your Key"
 ```
 ### Get Help
 ```powershell
-Get-Help .\ImageUploadScript.ps1
+Get-Help .\ImageUploadScript.ps1 -Examples
 ```
