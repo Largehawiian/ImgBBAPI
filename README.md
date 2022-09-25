@@ -6,7 +6,7 @@
 ```powershell
     Install-Module PoshImgBB
     Import-Module PoshImgBB
-    ```
+```
 
 ### Capture Screenshot
 ```powershell
