@@ -10,12 +10,16 @@
 .EXAMPLE
     _UploadImage -ApiKey '1234567890' -Image 'C:\Temp\image.png'
     Uploads the image to ImgBB.com and returns the URL
+.EXAMPLE
+    _UploadImage -ApiKey '1234567890' -Image 'C:\Temp\image.png' -OpenInBrowser
+    Uploads the image to ImgBB.com, returns the URL and opens it in the default browser
 #>
 
 Function _UploadImage {
     Param(
         [String]$path,
-        [String]$key
+        [String]$key,
+        [Switch]$OpenInBrowser
     )
     $Form = @{
         image = [convert]::ToBase64String((get-content $path -AsByteStream))
@@ -26,5 +30,15 @@ Function _UploadImage {
     catch {
         $_.Exception.Response
     }
-    return $response.data
+    $output = [PSCustomObject]@{
+        Image = $response.data.display_url
+        ShortURL = $response.data.url_viewer
+        DeleteURL = $response.data.delete_url
+        ThumbnailURL = $response.data.thumb.url
+        MediumURL = $response.data.medium.url
+    }
+    if ($OpenInBrowser) {
+        Start-Process $output.Image
+    }
+    return $output
 }

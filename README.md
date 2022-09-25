@@ -1,4 +1,7 @@
 # ImgBBAPI
+
+## Requires Powershell 7
+
 Function to upload to ImgBB's API
 ```powershell
 # To use the function, either paste it in your terminal or dot source it.
