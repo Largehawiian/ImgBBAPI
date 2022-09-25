@@ -33,7 +33,7 @@ Copyright = '(c) Jeremy Jackson. All rights reserved.'
 Description = 'Module for uploading images to ImgBB.com API'
 
 # Minimum version of the PowerShell engine required by this module
-# PowerShellVersion = ''
+PowerShellVersion = '7.0'
 
 # Name of the PowerShell host required by this module
 # PowerShellHostName = ''
