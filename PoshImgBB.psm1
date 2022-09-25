@@ -1,6 +1,6 @@
 # Importing public and private functions
 $PSScript = $PSScriptRoot
-$Func = @(Get-ChildItem -Recurse -Filter "*.ps1" -Path $PSScript -ErrorAction Stop)
+$Func = @(Get-ChildItem -Recurse -Filter "*.ps1" -Path $PSScript -Exclude "ImageUploadScript.ps1" -ErrorAction Stop)
 Set-ExecutionPolicy -ExecutionPolicy Bypass process
 # Dotsourcing files
 ForEach ($import in $Func) {
